@@ -3,10 +3,14 @@
 </div>
 
 <ng-container *ngIf="loadingPercent$ | async as loadingPercent">
-  
-    <h3>Loading: </h3><h1>{{loadingPercent}} %</h1><h3>Please wait...</h3>
+  <ng-container *ngIf="!isCompressed; else compressed">
+    <div class="loading-block"><h3>Loading: </h3><h1>{{loadingPercent}}%</h1><h3>Please wait...</h3></div>
     <div class="progress-bar">
-      <div class="progress" [ngStyle]="{'width': loadingPercent }"></div>
+      <div class="progress" [ngStyle]="{'width': loadingPercent + '%' }"></div>
     </div>
-  
+  </ng-container>
 </ng-container>
+
+<ng-template #compressed>
+  <h3>Video compression completed successfully</h3>
+</ng-template>

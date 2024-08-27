@@ -12,6 +12,8 @@ import { FfmpegStoreService } from './store/ffmpeg-store.service';
 export class AppComponent {
   title = 'temp-app';
 
+  isCompressed = false;
+
   readonly loadingPercent$ = this.ffmpegService.loadingPercent$;
 
   constructor(private ffmpegService: FfmpegStoreService) {
@@ -22,6 +24,8 @@ export class AppComponent {
     const file: File = event.target.files[0];
     if (file) {
       const compressedVideo = await this.ffmpegService.compressVideo(file);
+
+      this.isCompressed = compressedVideo ? true : false;
       this.downloadCompressedVideo(compressedVideo);
     }
   }
@@ -36,18 +40,3 @@ export class AppComponent {
     window.URL.revokeObjectURL(url);
   }
 }
-
-// export default defineConfig({
-//   plugins: [
-//     {
-//       name: "configure-response-headers",
-//       configureServer: (server) => {
-//         server.middlewares.use((_req, res, next) => {
-//           res.setHeader("Cross-Origin-Embedder-Policy", "require-corp");
-//           res.setHeader("Cross-Origin-Opener-Policy", "same-origin");
-//           next();
-//         });
-//       },
-//     },
-//   ],
-// });

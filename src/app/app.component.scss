@@ -3,6 +3,18 @@ h1 {
     text-align: center;
 }
 
+h3 {
+    text-align: center;
+    color: blue;
+}
+
+.loading-block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
 .progress-bar {
     width: calc(vw);
     height: 5px;
