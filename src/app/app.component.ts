@@ -31,6 +31,7 @@ export class AppComponent {
   }
 
   downloadCompressedVideo(blob: Blob) {
+    console.log("blob: ", blob);
     const url = window.URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
