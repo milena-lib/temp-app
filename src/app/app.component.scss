@@ -1,0 +1,15 @@
+h1 {
+    color: blue;
+    text-align: center;
+}
+
+.progress-bar {
+    width: calc(vw);
+    height: 5px;
+    border: 1px solid lime;
+
+    .progress{
+        height: 100%;
+        background-color: blue;
+    }
+}

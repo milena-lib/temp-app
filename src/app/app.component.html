@@ -1,3 +1,12 @@
 <div>
   <input type="file" (change)="onFileSelected($event)" accept="video/*">
 </div>
+
+<ng-container *ngIf="loadingPercent$ | async as loadingPercent">
+  
+    <h3>Loading: </h3><h1>{{loadingPercent}} %</h1><h3>Please wait...</h3>
+    <div class="progress-bar">
+      <div class="progress" [ngStyle]="{'width': loadingPercent }"></div>
+    </div>
+  
+</ng-container>

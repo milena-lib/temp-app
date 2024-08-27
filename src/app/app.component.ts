@@ -12,6 +12,8 @@ import { FfmpegStoreService } from './store/ffmpeg-store.service';
 export class AppComponent {
   title = 'temp-app';
 
+  readonly loadingPercent$ = this.ffmpegService.loadingPercent$;
+
   constructor(private ffmpegService: FfmpegStoreService) {
     
   }
@@ -28,7 +30,7 @@ export class AppComponent {
     const url = window.URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    console.log("url: ", url);
+    console.log("downloadCompressedVideo url: ", url);
     a.download = 'compressed-video.mp4';
     a.click();
     window.URL.revokeObjectURL(url);
